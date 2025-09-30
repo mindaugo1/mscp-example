@@ -1,43 +1,44 @@
-# Weather Analysis System
+# MCP Learning Example
 
-A weather analysis system built with the Model Context Protocol (MCP) that provides AI-powered weather services through multiple client-server architectures.
+A comprehensive learning example demonstrating the Model Context Protocol (MCP) implementation with multiple client-server architectures. Uses weather data as a sample domain to showcase MCP capabilities.
 
 ## Overview
 
-This project implements an MCP-based weather analysis system that combines weather station data with AI-powered analysis capabilities. It supports multiple LLM providers (Anthropic Claude and OpenAI GPT) and offers flexible client-server communication through both STDIO and Server-Sent Events (SSE) transports.
+This project is a practical learning example that demonstrates how to build MCP-based applications. It showcases client-server communication patterns, multiple transport protocols, LLM provider integrations, and MCP resource/tool/prompt functionality using weather data as a sample domain.
 
 ## Architecture
 
 ### Components
 
-- **MCP Server**: FastMCP-based server providing weather resources, tools, and prompts
-- **Chat Clients**: Multiple client implementations for different transport mechanisms
-- **LLM Clients**: Abstract client layer supporting multiple AI providers
-- **Weather Data**: Static weather station information and analysis templates
+- **MCP Server**: FastMCP-based server demonstrating resource, tool, and prompt functionality
+- **Chat Clients**: Multiple client implementations showcasing different transport mechanisms
+- **LLM Clients**: Abstract client layer demonstrating multi-provider integration patterns
+- **Sample Data**: Weather station data used as example domain content
 
 ### Key Features
 
-- **Multi-transport Support**: STDIO and SSE communication protocols
-- **Multi-LLM Support**: Compatible with Anthropic Claude and OpenAI GPT models
-- **Weather Resources**: Access to weather station data and analysis prompts
-- **Tool Integration**: Domain suggestion and content generation capabilities
-- **Interactive Chat Interface**: Command-line chat interface for weather queries
+- **Multi-transport Support**: Learn STDIO and SSE communication protocols
+- **Multi-LLM Support**: Example integration with Anthropic Claude and OpenAI GPT models
+- **MCP Resources**: Demonstrates resource serving with sample weather station data
+- **MCP Tools**: Example tool implementations for domain suggestions and content generation
+- **MCP Prompts**: Template examples for structured AI interactions
+- **Interactive Chat Interface**: Command-line interface demonstrating real-time MCP communication
 
 ## Project Structure
 
 ```
 weather/
 ├── server/
-│   ├── server_script.py    # MCP server implementation
-│   └── data.py            # Weather station data and prompts
+│   ├── server_script.py    # MCP server implementation example
+│   └── data.py            # Sample data and prompts
 ├── client/
 │   ├── client.py          # Base chat client class
-│   ├── sse_client.py      # SSE transport client
-│   └── stdio_chat_client.py # STDIO transport client
+│   ├── sse_client.py      # SSE transport client example
+│   └── stdio_chat_client.py # STDIO transport client example
 ├── llm_clients/
 │   ├── client_abc.py      # LLM client abstract base class
-│   ├── anthropic_client.py # Anthropic Claude integration
-│   └── openai_client.py   # OpenAI GPT integration
+│   ├── anthropic_client.py # Anthropic Claude integration example
+│   └── openai_client.py   # OpenAI GPT integration example
 ├── pyproject.toml         # Project configuration
 ├── Makefile              # Build and run commands
 └── README.md             # This file
@@ -107,37 +108,40 @@ uv run -m client.sse_client
 
 ### Interactive Chat
 
-Once a client is running, you can interact with the weather system:
+Once a client is running, you can interact with the MCP system:
 
 ```
-Query: Tell me about weather stations
-Query: Analyze the weather for New York
+Query: Tell me about available resources
+Query: What tools are available?
+Query: Get weather station information
 Query: quit
 ```
 
 ## MCP Resources and Tools
 
+This section demonstrates the three main MCP capabilities:
+
 ### Resources
 
-- `weather://stations`: Weather station data including IDs, names, locations, and coordinates
+- `weather://stations`: Example resource serving weather station data including IDs, names, locations, and coordinates
 
 ### Prompts
 
-- `weather_analysis`: Template for comprehensive weather condition analysis
+- `weather_analysis`: Example prompt template for comprehensive weather condition analysis
 
 ### Tools
 
-- `get_domain_suggestions`: Generate domain name suggestions
-- `generate_post_content`: Create post content based on descriptions
+- `get_domain_suggestions`: Example tool to generate domain name suggestions
+- `generate_post_content`: Example tool to create post content based on descriptions
 
-## Weather Station Data
+## Sample Data
 
-The system includes data for major airports:
+The system includes example weather station data for major airports:
 - John F. Kennedy International Airport (KJFK) - New York, NY
 - Los Angeles International Airport (KLAX) - Los Angeles, CA
 - O'Hare International Airport (KORD) - Chicago, IL
 
-Each station includes:
+Each station entry demonstrates typical resource data structure:
 - Station ID and name
 - Geographic location and coordinates
 - Elevation and equipment type (ASOS)
@@ -158,7 +162,7 @@ Each station includes:
 
 - Default port: 8080 (HTTP/SSE mode)
 - User agent: `weather-app/1.0`
-- National Weather Service API integration ready
+- Example configuration for external API integration patterns
 
 ## Development
 
@@ -177,9 +181,9 @@ Each station includes:
    - `set_available_tools()`
    - `set_call_tool_closure()`
 
-### Extending Weather Data
+### Extending Sample Data
 
-Weather station data can be extended in `server/data.py` by adding new entries to the `WEATHER_STATIONS_DATA` dictionary.
+Sample data can be modified in `server/data.py` by updating the `WEATHER_STATIONS_DATA` dictionary to demonstrate different resource patterns.
 
 ## Dependencies
 
@@ -189,11 +193,3 @@ Core dependencies include:
 - `anthropic`: Anthropic Claude API client
 - `openai`: OpenAI GPT API client
 - `requests`: HTTP library for external API calls
-
-## License
-
-[Add license information here]
-
-## Contributing
-
-[Add contribution guidelines here]
